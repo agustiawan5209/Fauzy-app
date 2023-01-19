@@ -18,8 +18,8 @@ class UsahaSeeder extends Seeder
         $users = array(
             array(
                 "id" => 1,
-                "name" => "wawan",
-                "email" => "wawan@gmail.com",
+                "name" => "user",
+                "email" => "user@gmail.com",
                 "email_verified_at" => NULL,
                 "password" => bcrypt('12345678'),
                 "remember_token" => NULL,

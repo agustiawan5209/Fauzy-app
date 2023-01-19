@@ -24,13 +24,13 @@ if (chart.length > 0) {
                         borderColor: 'rgb(255, 99, 132, 0.5)',
                         data: ranking,
                         stack: 'combined',
-                        type: 'bar'
+                        type: 'line'
                     },
                 ]
             };
 
             const config = {
-                type: 'bar',
+                type: 'line',
                 data: data,
                 options: {
                     responsive: true,

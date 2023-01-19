@@ -32,7 +32,7 @@
                 </div>
                 <div class="modal-action flex justify-between">
                     <button type="submit" for="my-modal" class="btn btn-success">Simpan!</button>
-                    <a href="{{ route('Kriteria.index') }}" for="my-modal" class="btn btn-error">Tutup!</a>
+                    <a href="{{ route('Kriteria.index') }}" for="my-modal" class="btn btn-danger">Tutup!</a>
                 </div>
             </form>
         </div>

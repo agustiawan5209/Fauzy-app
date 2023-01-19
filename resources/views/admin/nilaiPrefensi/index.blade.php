@@ -3,46 +3,55 @@
     <x-slot name="page">nilaiPrefensi</x-slot>
     {{-- Modal Tambah nilaiPrefensi --}}
     <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="my-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box max-w-md">
-            <form action="{{ route('nilaiPrefensi.store') }}" method="POST" class="flex flex-col justify-center items-center">
-                @csrf
-                @method('POST')
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-kode">Nilai Prefensi</span>
-                    </label>
-                    <label class="input-group">
-                        <span>Kode</span>
-                        <input type="text" placeholder="....." name="kode" class="input input-bordered" />
-                    </label>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-keterangan">keterangan Prefensi</span>
-                    </label>
-                    <label class="input-group">
-                        <span>keterangan</span>
-                        <input type="text" placeholder="....." name="nama" class="input input-bordered" />
-                    </label>
+                <div class="modal-body">
+                    <form action="{{ route('nilaiPrefensi.store') }}" method="POST"
+                        class="flex flex-col justify-center items-center">
+                        @csrf
+                        @method('POST')
+                        <div class="form-group">
+                            <label class="label">
+                                <span class="label-kode">Nilai Prefensi</span>
+                            </label>
+                            <label class="col-sm-12">
+                                <span>Kode</span>
+                                <input type="text" placeholder="....." name="kode"
+                                    class="form-control border-bottom" />
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="label">
+                                <span class="label-keterangan">keterangan Prefensi</span>
+                            </label>
+                            <label class="col-sm-12">
+                                <span>keterangan</span>
+                                <input type="text" placeholder="....." name="nama"
+                                    class="form-control border-bottom" />
+                            </label>
+                        </div>
+                    </form>
                 </div>
-                <div class="modal-action flex justify-between">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" for="my-modal" class="btn btn-success">Simpan!</button>
-                    <label for="my-modal" class="btn btn-error">Tutup!</label>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     {{-- Table --}}
     <x-table>
         <x-slot name="input">
-            <label for="my-modal" class="btn">Tambah</label>
-
-
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Tambah
+            </button>
         </x-slot>
         <x-slot name="head">
-            <x-th data-priority="1">No.</x-th>
             <x-th data-priority="1">Nilai</x-th>
             <x-th data-priority="2">keterangan</x-th>
             <x-th data-priority="3">Aksi</x-th>
@@ -50,12 +59,11 @@
         <x-slot name="body">
             @foreach ($nilaiPrefensi as $item)
                 <x-tr>
-                    <x-td>{{ $loop->iteration }}</x-td>
                     <x-td>{{ $item->kode }}</x-td>
                     <x-td>{{ $item->nama }}</x-td>
                     <x-td>
-                        <x-tdaction :edit="true" :delete="true" :routeEdit="route('nilaiPrefensi.edit', ['id' => $item->id])" routeDelete="deletenilaiPrefensi "
-                            :idDelete="$item->id":detail="false"/>
+                        <x-tdaction :edit="true" :delete="true" :routeEdit="route('nilaiPrefensi.edit', ['id' => $item->id])"
+                            routeDelete="deletenilaiPrefensi " :idDelete="$item->id" :detail="false" />
                     </x-td>
                 </x-tr>
             @endforeach

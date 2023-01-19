@@ -19,8 +19,8 @@ $(function () {
         e.preventDefault();
         var input = document.createElement('input');
         input.type = 'text';
-        input.classList.add('input')
-        input.classList.add('input-bordered')
+        input.classList.add('form-control')
+        input.classList.add('border-none')
         input.classList.add('w-full')
         input.classList.add('max-w-xs')
         input.placeholder = 'masukkan nama sub kriteria';

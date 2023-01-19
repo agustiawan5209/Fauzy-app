@@ -1,112 +1,245 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SKRIPSI</title>
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/styindex.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/app.97c38cea.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/app.f85da3e0.css') }}">
-    <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-</head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Start your development with Creative Design landing page.">
+    <meta name="author" content="Devcrud">
+    <title>Design Interior </title>
 
-<body class="overflow-y-auto overflow-x-hidden font-inter">
-    <div class="animation-loading bg-info opacity-90">
-        <div class="flip-to-square ">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div class="md:w-0 lg:w-0 w-0 -translate-x-64"></div>
-        </div>
-    </div>
-    <div class="navbar bg-info z-[50] box-border">
-        <div class="navbar-start">
-            <div class="dropdown">
-                <label tabindex="0" class="btn btn-ghost lg:hidden">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M4 6h16M4 12h8m-8 6h16" />
-                    </svg>
-                </label>
-                <ul tabindex="0"
-                    class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                    <li class="text-white"><a class="text-whte hover:text-gray-100" href="{{ url('/') }}">Home</a>
+    <!-- font icons -->
+    <link rel="stylesheet" href="{{ asset('assets/vendors/themify-icons/css/themify-icons.css') }}">
+
+    <!-- Bootstrap + Creative Design main styles -->
+	<link rel="stylesheet" href="{{ asset('assets/css/creative-design.css') }}">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- Page Navbar -->
+    <nav id="scrollspy" class="navbar page-navbar navbar-light navbar-expand-md fixed-top" data-spy="affix" data-offset-top="20">
+        <div class="container">
+            <a class="navbar-brand" href="#"><strong class="text-primary">Design</strong> <span class="text-dark">Interior</span></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#input">Input Kriteria</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testmonial">Testmonial</a>
                     </li>
 
-                    <li class="text-white"><a class="text-whte hover:text-gray-100"
-                            href="{{ route('Usaha.index') }}">Info Usaha</a></li>
-
+                    <li class="nav-item ml-md-4">
+                        <a class="nav-link btn btn-primary" href="{{ route('login') }}">Login</a>
+                    </li>
                 </ul>
             </div>
-            <a class="btn btn-ghost normal-case text-xl text-white">SPK</a>
         </div>
-        <div class="navbar-center hidden lg:flex relative box-border">
-            <ul class="menu menu-horizontal p-0">
-                <li class="text-white"><a class="text-whte hover:text-gray-100 text-2xl font-bold hover:border-b transition-colors" href="{{ url('/') }}">Home</a>
-                </li>
-                <li class="text-white"><a class="text-whte hover:text-gray-100 text-2xl font-bold hover:border-b transition-colors" href="{{ route('Usaha.index') }}">Info
-                        Usaha</a></li>
-            </ul>
-        </div>
-        <div class="navbar-end">
-            <a href="{{ route('login') }}" class="btn btn-primary text-white">Masuk</a>
-        </div>
+    </nav><!-- End of Page Navbar -->
+
+    <!-- Page Header -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="false">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="assets/imgs/1849.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h3 style="text-shadow: 4px 2px 1px black;">SISTEM PENDUKUNG KEPUTUSAN</h3>
+        <h5 style="color: #FFD700; text-shadow:4px 2px 1px black;" >Pemilihan Design Interior Rumah Minimalis</h5>
+      </div>
     </div>
-    <main class="absolute w-full h-max max-h-max ">
-       {{$slot}}
-        <footer class="footer p-10 bg-accent text-neutral-content ">
-            <div>
-                <svg width="50" height="50" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                    fill-rule="evenodd" clip-rule="evenodd" class="fill-current">
-                    <path
-                        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z">
-                    </path>
-                </svg>
-                <p>ACME Industries Ltd.<br />Providing reliable tech since 1992</p>
-            </div>
-            <div>
-                <span class="footer-title">Social</span>
-                <div class="grid grid-flow-col gap-4">
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            class="fill-current">
-                            <path
-                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z">
-                            </path>
-                        </svg></a>
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            class="fill-current">
-                            <path
-                                d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z">
-                            </path>
-                        </svg></a>
-                    <a><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                            class="fill-current">
-                            <path
-                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z">
-                            </path>
-                        </svg></a>
+        </div>
+  </div>
+  </div>
+
+    <!-- About Section -->
+    <section id="about">
+        <!-- Container -->
+        <div class="container">
+            <!-- About wrapper -->
+            <div class="about-wrapper">
+                <div class="after"><h1>Profile</h1></div>
+                <div class="content">
+                    <h5 class="title mb-3">Ahmad Fauzy</h5>
+                    <!-- row -->
+                    <div class="row">
+                        <div class="col">
+                            <p><b>SISTEM PENDUKUNG KEPUTUSAN PEMILIHAN DESIGN INTERIOR RUMAH MINIMALIS </b></p>
+                            <p>Desain interior akan selalu berkaitan dengan citra yang ingin di ciptakan oleh organisasi atau individu-individu yang memiliki fungsi ruang untuk menampung aktifitas pengguna yang mencitrakan keberadaan suasana ruang yang menjadi identitas organisasi, korporasi maupun diri pemiliknya, kemudian dipersepsi oleh manusia yang mengamatinya menjadi nilai yang mempengaruhi pembentukan image karakter suatu ruang . </p>
+                            <p>Persepsi yang ditimbulkan masing2 individu dalam mengidentifikasi karakter suatu ruang kadang berbeda satu sama lain yang disebabkan orientasi nilai budaya dan latar belakang yang berbeda</p>
+                        </div>
+                        <div class="col">
+                            <p>Sistem pendukung keputusan (SPK) merupakan sistem yang mampu memberikan kemampuan pemecahan masalah dengan kondisi semi terstruktur dan tak terstruktur</p>
+                            <p>SPK adalah suatu bentuk  Computer Base Information System (CBIS) yang interaktif, fleksibel, dan secara khusus dikembangkan untuk mendukung penyelesaian masalah dari manajemen yang tidak terstruktur untuk memperbaiki pembuatan keputusan.</p>
+                            <p>SPK biasanya dibangun untuk mendukung solusi atas suatu masalah atau untuk mengevaluasi suatu peluang. SPK tidak dimaksudkan untuk mengotomatisasikan pengambilan keputusan, tetapi memberikan perangkat interaktif yang memungkinkan pengambil keputusan untuk melakukan berbagai analisis menggunakan model-model yang tersedia</p>
+                        </div>
+                    </div><!-- End of Row -->
+
+                </div>
+            </div><!-- End of About Wrapper -->
+        </div>  <!-- End of Container-->
+     </section><!--End of Section -->
+
+
+    <!-- section -->
+    <section>
+        <!-- Container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-6">
+                    <div class="img-wrapper">
+                        <div class="after"></div>
+                        <img src="assets/imgs/img-1.jpg" class="w-100" alt="About Us">
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <h6 class="title mb-3">Lorem ipsum dolor sit amet, consectetur.</h6>
+
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae autem rem impedit molestiae hic ducimus, consequuntur ullam dolorem quaerat beatae labore explicabo, sint laboriosam aperiam nihil inventore facilis. Quasi, facilis.</p>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, amet!</p>
+                    <button class="btn btn-outline-primary btn-sm">Learn More</button>
                 </div>
             </div>
-        </footer>
-        <div class="border-svg-2"></div>
+            <!-- End of Row -->
+        </div>
+        <!-- End of Container -->
+    </section><!-- End of Section -->
 
-    </main>
-    <br>
-    <script src="{{ asset('js/wow.min.js') }}"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <script src="{{ asset('build/assets/app.39a39601.js') }}"></script>
+    <!-- section -->
+    <section>
+        <!-- Container -->
+        <div class="container">
+            <!-- Row -->
+            <div class="row justify-content-between align-items-center">
+                <div class="col-md-5">
+                    <h6 class="title mb-3">Lorem ipsum dolor sit amet, consectetur.</h6>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae autem rem impedit molestiae hic ducimus, consequuntur ullam dolorem quaerat beatae labore explicabo, sint laboriosam aperiam nihil inventore facilis. Quasi, facilis.</p>
+                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur, amet!</p>
+                    <button class="btn btn-outline-primary btn-sm">Learn More</button>
+
+                </div>
+                <div class="col-md-6">
+                    <div class="img-wrapper">
+                        <div class="after right"></div>
+                        <img src="assets/imgs/img-2.jpg" class="w-100" alt="About Us">
+                    </div>
+                </div>
+            </div><!-- End of Row -->
+        </div><!-- End of Container-->
+    </section><!-- End of Section -->
+
+
+    <!-- Features Section -->
+    <section class="has-bg-img" id="features">
+
+    </section><!-- End of features Section -->
+
+    <!-- Section -->
+
+
+    <!-- Testmonial Section -->
+    <section class="text-center pt-5" id="testmonial">
+        <!-- Container -->
+        <div class="container">
+            <h3 class="mt-3 mb-5 pb-5">What our Client says</h3>
+            <!-- Row -->
+            <div class="row">
+                <div class="col-sm-10 col-md-4 m-auto">
+                    <div class="testmonial-wrapper">
+                        <img src="assets/imgs/avatar1.jpg" alt="Client Image">
+                        <h6 class="title mb-3">Adell Smith</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates voluptatem eum nisi cumque veniam est id reprehenderit atque rerum, cum sit perspiciatis, harum cupiditate nostrum quibusdam perferendis accusamus, illo.</p>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-4 m-auto">
+                    <div class="testmonial-wrapper">
+                        <img src="assets/imgs/avatar2.jpg" alt="Client Image">
+                        <h6 class="title mb-3">John Doe</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates voluptatem eum nisi cumque veniam est id reprehenderit atque rerum, cum sit perspiciatis, harum cupiditate nostrum quibusdam perferendis accusamus, illo.</p>
+                    </div>
+                </div>
+                <div class="col-sm-10 col-md-4 m-auto">
+                    <div class="testmonial-wrapper">
+                        <img src="assets/imgs/avatar3.jpg" alt="Client Image">
+                        <h6 class="title mb-3">Kyle Butler</h6>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium voluptates voluptatem eum nisi cumque veniam est id reprehenderit atque rerum, cum sit perspiciatis, harum cupiditate nostrum quibusdam perferendis accusamus, illo.</p>
+                    </div>
+                </div>
+            </div><!-- end of Row -->
+        </div><!-- End of Cotanier -->
+    </section><!-- End of Testmonial Section -->
+
+
+
+
+
+    <!-- Section -->
+    <section class="pb-0">
+        <!-- Container -->
+        <div class="container">
+            <!-- Pre footer -->
+            <div class="pre-footer">
+                <ul class="list">
+                    <li class="list-head">
+                        <h6 class="font-weight-bold">ABOUT US</h6>
+                    </li>
+                    <li class="list-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae nobis fugit maxime deleniti minus optio accusamus, quam maiores explicabo sunt.</p>
+                        <a href="#"><strong class="text-primary">Design</strong> <span class="text-dark">Interior</span></a>
+                    </li>
+                </ul>
+
+                <ul class="list">
+                    <li class="list-head">
+                        <h6 class="font-weight-bold">CONTACT INFO</h6>
+                    </li>
+                    <li class="list-body">
+                        <p>Contact us and we'll get back to you within 24 hours.</p>
+
+                        <div class="social-links">
+                            <a href="javascript:void(0)" class="link"><i class="ti-facebook"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-twitter-alt"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-google"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-pinterest-alt"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-instagram"></i></a>
+                            <a href="javascript:void(0)" class="link"><i class="ti-rss"></i></a>
+                        </div>
+                    </li>
+                </ul>
+            </div><!-- End of Pre footer -->
+
+            <!-- foooter -->
+            <footer class="footer">
+                <p>Copyright <script>document.write(new Date().getFullYear())</script> &copy; <a href="http://www.devcrud.com">DevCRUD</a></p>
+            </footer><!-- End of Footer-->
+
+        </div><!--End of Container -->
+    </section><!-- End of Section -->
+
+    <!-- core  -->
+    <script src="{{ asset('assets/vendors/jquery/jquery-3.4.1.js') }}"></script>
+    <script src="{{ asset('assets/vendors/bootstrap/bootstrap.bundle.js') }}"></script>
+
+    <!-- bootstrap affix -->
+    <script src="{{ asset('assets/vendors/bootstrap/bootstrap.affix.js') }}"></script>
+
+    <!-- Creative Design js -->
+    <script src="{{ asset('assets/js/creative-design.js') }}"></script>
 
 </body>
-
 </html>

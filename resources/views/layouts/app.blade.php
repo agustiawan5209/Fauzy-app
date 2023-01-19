@@ -1,129 +1,220 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- basic -->
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- mobile metas -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-    <!-- site metas -->
-    <title>SPK - {{ config('app.name', 'Laravel') }}</title>
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <!-- site icon -->
-    <link rel="icon" href="{{ asset('aset/images/fevicon.png') }}" type="image/png" />
-    <!-- scrollbar css -->
-    <link rel="stylesheet" href="{{ asset('aset/css/perfect-scrollbar.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/styindex.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/app.97c38cea.css') }}">
-    <link rel="stylesheet" href="{{ asset('build/assets/app.f85da3e0.css') }}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="canonical" href="https://www.wrappixel.com/templates/ample-admin-lite/" />
+    <!-- Custom CSS -->
+    <link href="{{ asset('plugins/bower_components/chartist/dist/chartist.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.css') }}">
+    <!-- Custom CSS -->
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    @vite(['resources/js/app.js'])
     <!--Regular Datatables CSS-->
-    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
-    <!--Responsive Extension Datatables CSS-->
-    <link href="https://cdn.datatables.net/responsive/2.2.3/css/responsive.dataTables.min.css" rel="stylesheet">
     <script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('vendor/sweetalert/sweetalert.all.js') }}"></script>
     <script src="{{ asset('js/wow.min.js') }}"></script>
     <script>
         new WOW().init();
     </script>
-
 </head>
+<body>
+     <!-- ============================================================== -->
+    <!-- Preloader - style you can find in spinners.css -->
+    <!-- ============================================================== -->
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper" data-layout="vertical" data-navbarbg="skin5" data-sidebartype="full"
+        data-sidebar-position="absolute" data-header-position="absolute" data-boxed-layout="full">
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        <header class="topbar" data-navbarbg="skin5">
+            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- ============================================================== -->
+                    <!-- Logo -->
+                    <!-- ============================================================== -->
+                    <a class="navbar-brand" href="{{ route('dashboard') }}">
+                        <!-- Logo icon -->
+                        <b class="logo-icon">
+                            <!-- Dark Logo icon -->
+                            <img src="plugins/images/logo-icon.png" alt="homepage" />
+                        </b>
+                        <!--End Logo icon -->
+                        <!-- Logo text -->
+                        <span class="logo-text">
+                            <!-- dark Logo text -->
+                            <img src="plugins/images/logo-text.png" alt="homepage" />
+                        </span>
+                    </a>
+                    <!-- ============================================================== -->
+                    <!-- End Logo -->
+                    <!-- ============================================================== -->
+                    <!-- ============================================================== -->
+                    <!-- toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <a class="nav-toggler waves-effect waves-light text-dark d-block d-md-none"
+                        href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Logo -->
+                <!-- ============================================================== -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
 
-<body class="overflow-x-hidden overflow-y-auto h-screen bg-base-200">
-    <div class="animation-loading bg-info">
-        <div class="flip-to-square ">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div class="md:w-0 lg:w-0 w-0 -translate-x-64"></div>
-        </div>
-    </div>
-    @include('sweetalert::alert')
-    <div id="Sidebar"
-        class="wow slideIn hidden md:flex  md:w-1/4 lg:w-[15%] h-full items-start bg-info flex-wrap absolute left-0 shadow-sm shadow-white z-20 transition-all ease-in-out">
-        <div class=" flex md:hidden w-full justify-end">
-            <button type="button" class="btn btn-info text-white btnSidebar">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                </svg>
-            </button>
-        </div>
-        <div class="flex w-full justify-center items-center flex-wrap md:mt-10">
-            <div class="avatar online hidden md:block">
-                <div class="w-24 rounded-full">
-                    <img src="{{ asset('img/ben-sweet-2LowviVHZ-E-unsplash.jpg') }}" />
-                </div>
-            </div>
-            @include('layouts.sidebar')
-        </div>
-    </div>
-    <main  id="content"
-        class=" md:ml-[25%] lg:ml-[15%] overflow-x-hidden overflow-y-auto h-screen transition-all ease-in-out">
-        <div class="navbar bg-info">
-            <div class="flex-1">
-                <button type="button" class="btn btn-info text-white btnSidebar">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                        stroke="currentColor" class="w-6 h-6">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-                <a class="btn btn-ghost normal-case text-xl text-white hidden md:flex">{{ $page }}</a>
-            </div>
-            <div class="flex-none gap-2">
-                <div class="form-control hidden md:flex">
-                    <input type="text" placeholder="Search" class="input input-bordered" />
-                </div>
-                <div class="dropdown dropdown-end">
-                    <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-                        <div class="w-10 rounded-full">
-                            <img src="{{ asset('img/ben-sweet-2LowviVHZ-E-unsplash.jpg') }}" />
-                        </div>
-                    </label>
-                    <ul tabindex="0"
-                        class="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
-                        {{-- <li>
-                            <a class="justify-between" href="{{ route('profile.index') }}">
-                                Profile
-                            </a>
-                        </li>
-                        <li><a>Settings</a></li> --}}
-                        <li>
-                            <form action="{{ route('logout') }}" method="POST" class="w-full">
-                                @csrf
-                                <button type="submit" class="w-full">Logout</button>
+                    <!-- ============================================================== -->
+                    <!-- Right side toggle and nav items -->
+                    <!-- ============================================================== -->
+                    <ul class="navbar-nav ms-auto d-flex align-items-center">
+
+                        <!-- ============================================================== -->
+                        <!-- Search -->
+                        <!-- ============================================================== -->
+                        {{-- <li class=" in">
+                            <form role="search" class="app-search d-none d-md-block me-3">
+                                <input type="text" placeholder="Search..." class="form-control mt-0">
+                                <a href="" class="active">
+                                    <i class="fa fa-search"></i>
+                                </a>
                             </form>
+                        </li> --}}
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
+                        <li>
+                            <a class="profile-pic" href="#">
+                                <img src="plugins/images/users/varun.jpg" alt="user-img" width="36"
+                                    class="img-circle"><span class="text-white font-medium">{{ Auth::user()->name }}</span></a>
                         </li>
+                        <!-- ============================================================== -->
+                        <!-- User profile and search -->
+                        <!-- ============================================================== -->
                     </ul>
                 </div>
+            </nav>
+        </header>
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <!-- User Profile-->
+                        <li class="sidebar-item pt-2">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard') }}"
+                                aria-expanded="false">
+                                <i class="far fa-clock" aria-hidden="true"></i>
+                                <span class="hide-menu">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('nilaiPrefensi.index') }}"
+                                aria-expanded="false">
+                                <i class="fa fa-list-ul" aria-hidden="true"></i>
+                                <span class="hide-menu">Data Nilai</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('Alternatif.index') }}"
+                                aria-expanded="false">
+                                <i class="fa fa-table" aria-hidden="true"></i>
+                                <span class="hide-menu">Alternatif</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('Kriteria.index') }}"
+                                aria-expanded="false">
+                                <i class="fas fa-info-circle" aria-hidden="true"></i>
+                                <span class="hide-menu">Kriteria</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('NilaiBobotKriteria.index') }}"
+                                aria-expanded="false">
+                                <i class="fas fa-th-list" aria-hidden="true"></i>
+                                <span class="hide-menu">Nilai Bobot Kriteria</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('NilaiBobotAlternatif.index') }}"
+                                aria-expanded="false">
+                                <i class="fas fa-th-list" aria-hidden="true"></i>
+                                <span class="hide-menu">Nilai Bobot Alternatif</span>
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('Perhitungan.Perhitungan') }}"
+                                aria-expanded="false">
+                                <i class="fa fa-columns" aria-hidden="true"></i>
+                                <span class="hide-menu">Perhitungan</span>
+                            </a>
+                        </li>
+
+
+                    </ul>
+
+                </nav>
+                <!-- End Sidebar navigation -->
             </div>
-        </div>
-        <div class="md:container mx-auto md:px-2 md:py-4 w-full relative box-border overflow-x-auto">
-            {{ $slot }}
-        </div>
-    </main>
-    <!-- jQuery -->
+            <!-- End Sidebar scroll-->
+        </aside>
+        <!-- ============================================================== -->
+        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Bread crumb and right sidebar toggle -->
+            <!-- ============================================================== -->
+            <div class="page-breadcrumb bg-white">
 
-    <!-- wow animation -->
-    <script src="{{ asset('aset/js/animate.js') }}"></script>
-    <!-- owl carousel -->
-    <script src="{{ asset('aset/js/owl.carousel.js') }}"></script>
-    <script src="{{ asset('build/assets/app.39a39601.js') }}"></script>
+                <!-- /.col-lg-12 -->
+              {{$slot}}
+            </div>
 
+            <footer class="footer text-center"> 2022 © admin
+            </footer>
+            <!-- ============================================================== -->
+            <!-- End footer -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+    </div>
+    <script src="{{ asset('plugins/bower_components/jquery/dist/jquery.min.js') }}"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="{{ asset('bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('js/app-style-switcher.js') }}"></script>
+    <script src="{{ asset('plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
+    <script src="{{ asset('aset/js/Chart.js') }}"></script>
+    <!--Wave Effects -->
+    <script src="{{ asset('js/waves.js') }}"></script>
+    <!--Menu sidebar -->
+    <script src="{{ asset('js/sidebarmenu.js') }}"></script>
+    <!--Custom JavaScript -->
+    <script src="{{ asset('js/custom.js') }}"></script>
+    <!--This page JavaScript -->
+    <!--chartis chart-->
+    <script src="{{ asset('plugins/bower_components/chartist/dist/chartist.min.js') }}"></script>
+    <script src="{{ asset('plugins/bower_components/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js') }}"></script>
+    <script src="{{ asset('js/pages/dashboards/dashboard1.js') }}"></script>
 </body>
-
 </html>

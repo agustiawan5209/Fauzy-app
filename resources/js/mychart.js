@@ -26,18 +26,11 @@ if (chart.length > 0) {
                         stack: 'combined',
                         type: 'bar'
                     },
-                    {
-                        label: 'Grafik Line Bobot Nilai',
-                        backgroundColor: 'rgb(76, 241, 11)',
-                        borderColor: 'rgb(255, 99, 132, 0.5)',
-                        data: ranking,
-                        stack: 'combined'
-                    }
                 ]
             };
 
             const config = {
-                type: 'line',
+                type: 'bar',
                 data: data,
                 options: {
                     responsive: true,

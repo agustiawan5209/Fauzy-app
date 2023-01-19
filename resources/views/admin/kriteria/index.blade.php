@@ -3,46 +3,59 @@
     <x-slot name="page">Kriteria</x-slot>
     {{-- Modal Tambah Kriteria --}}
     <!-- Put this part before </body> tag -->
-    <input type="checkbox" id="my-modal" class="modal-toggle" />
-    <div class="modal">
-        <div class="modal-box max-w-md">
-            <form action="{{ route('Kriteria.store') }}" method="POST" class="flex flex-col justify-center items-center">
-                @csrf
-                @method('POST')
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-kode">Kode Kriteria</span>
-                    </label>
-                    <label class="input-group">
-                        <span>Kode</span>
-                        <input type="text" placeholder="....." name="kode" class="input input-bordered" value={{ $kode }} />
-                    </label>
+
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="form-control">
-                    <label class="label">
-                        <span class="label-nama">Nama Kriteria</span>
-                    </label>
-                    <label class="input-group">
-                        <span>Nama</span>
-                        <input type="text" placeholder="....." name="name" class="input input-bordered" />
-                    </label>
+                <div class="modal-body">
+                    <form action="{{ route('Kriteria.store') }}" method="POST" class="flex flex-col justify-center items-center">
+                        @csrf
+                        @method('POST')
+                        <div class="form-group ">
+                            <label class="col-sm-12">
+                                <span class="label-kode">Kode Kriteria</span>
+                            </label>
+                            <label class="col-md-12">
+                                <input type="text" placeholder="....." name="kode" class="form-control border-none"
+                                    value={{ $kode }} />
+                            </label>
+                        </div>
+                        <div class="form-group ">
+                            <div class="col-sm-12">
+                                <span class="label-nama">Nama Kriteria</span>
+                            </div>
+                            <div class="col-md-12">
+                                <input type="text" placeholder="....." name="name" class="form-control border-none" />
+                            </div>
+                        </div>
+                        <div class="divider">Sub Kriteria</div>
+                        <div class="form-group  w-full flex flex-nowrap justify-center contentSubKriteria" id="">
+                            <input type="text" placeholder="Type here" name="subkriteria[]"
+                                class="form-control border-none w-full max-w-xs" />
+                        </div>
+                        <kbd class="kbd cursor-pointer plusSubKriteria">+</kbd>
+
+                    </form>
                 </div>
-                <div class="divider">Sub Kriteria</div>
-                <div class="form-control w-full flex flex-nowrap justify-center contentSubKriteria" id="">
-                <input type="text" placeholder="Type here" name="subkriteria[]" class="input input-bordered w-full max-w-xs" />
-                </div>
-                <kbd class="kbd cursor-pointer plusSubKriteria" >+</kbd>
-                <div class="modal-action flex justify-between">
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" for="my-modal" class="btn btn-success">Simpan!</button>
-                    <label for="my-modal" class="btn btn-error">Tutup!</label>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
     {{-- Table --}}
     <x-table>
         <x-slot name="input">
-            <label for="my-modal" class="btn">Tambah</label>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Tambah
+            </button>
 
 
         </x-slot>

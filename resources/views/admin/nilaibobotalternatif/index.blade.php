@@ -7,11 +7,11 @@
             <form action="{{ route('NilaiBobotAlternatif.edit') }}" method="POST" class="grid grid-cols-1">
                 @csrf
                 @method('PUT')
-                <div class="form-control w-full max-w-xs col-span-1">
-                    <label class="label">
-                        <span class="label-text text-white text-sm md:text-xl">Pilih Kriteria</span>
+                <div class="form-group w-full max-w-xs col-span-1">
+                    <label class="col-sm-12">
+                        <span class="label-text text-white">Pilih Kriteria</span>
                     </label>
-                    <select class="select select-bordered kriteria_id" name="kriteria_id" id="kriteria_id">
+                    <select class="form-select select-bordered kriteria_id" name="kriteria_id" id="kriteria_id">
                         <option value="">---</option>
                         @for ($z = 0; $z < count($kriteria); $z++)
                             <option class="text-gray-800" value="{{ $kriteria[$z]['kode'] }}"
@@ -21,44 +21,44 @@
                     </select>
                 </div>
                 <div class=" col-span-3 flex  justify-around">
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text text-white text-sm md:text-xl">alternatif 1</span>
+                    <div class="form-group w-full max-w-xs">
+                        <label class="col-sm-12">
+                            <span class="label-text text-white">alternatif 1</span>
                         </label>
-                        <select class="select select-bordered" name="alternatif1">
+                        <select class="form-select select-bordered" name="alternatif1">
                             @for ($z = 0; $z < count($alternatif); $z++)
                                 <option class="text-gray-800" value="{{ $alternatif[$z]['kode'] }}">
                                     {{ $alternatif[$z]['kode'] }}</option>
                             @endfor
                         </select>
                     </div>
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text text-white text-sm md:text-xl">Nilai Perbandingan</span>
+                    <div class="form-group w-full max-w-xs">
+                        <label class="col-sm-12">
+                            <span class="label-text text-white">Nilai Perbandingan</span>
                         </label>
-                        <select class="select select-bordered" name="nilai_banding">
+                        <select class="form-select select-bordered" name="nilai_banding">
                             @foreach ($prefensi as $item)
                                 <option class="text-gray-800" value="{{ $item->id }}">{{ $item->kode }} -
                                     {{ $item->nama }}</option>
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text text-white text-sm md:text-xl">alternatif 2</span>
+                    <div class="form-group w-full max-w-xs">
+                        <label class="col-sm-12">
+                            <span class="label-text text-white">alternatif 2</span>
                         </label>
-                        <select class="select select-bordered" name="alternatif2">
+                        <select class="form-select select-bordered" name="alternatif2">
                             @for ($l = 0; $l < count($alternatif); $l++)
                                 <option class="text-gray-800" value="{{ $alternatif[$l]['kode'] }}">
                                     {{ $alternatif[$l]['kode'] }}</option>
                             @endfor
                         </select>
                     </div>
-                    <div class="form-control w-full max-w-xs">
-                        <label class="label">
-                            <span class="label-text text-white text-sm md:text-xl">-</span>
+                    <div class="form-group w-full max-w-xs">
+                        <label class="col-sm-12">
+                            <span class="label-text text-white">-</span>
                         </label>
-                        <button type="submit" class="btn btn-accent">Ganti</button>
+                        <button type="submit" class="btn btn-primary">Ganti</button>
                     </div>
                 </div>
             </form>

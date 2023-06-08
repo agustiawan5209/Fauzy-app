@@ -36,42 +36,6 @@
                                     value="{{ $edit == false ? '' : $alternatif->nama }}" />
                             </div>
                         </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class=" border-bottom border-black box-title text-black col-sm-12">Gambar</label>
-                            </div>
-                            <label class=" border-bottom border-black box-title-control border-0 ">
-                                <input type="file" placeholder="....." name="gambar"
-                                    class="file-input  file-input-bordered w-full"
-                                    value="{{ $edit == false ? '' : $alternatif->lokasi->gambar }}" />
-                            </label>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class=" border-bottom border-black box-title text-black col-sm-12">Lokasi</label>
-                            </div>
-                            <div class="col-md-12 border-bottom">
-                                <input type="text" placeholder="....." name="lokasi" class="form-control border-0"
-                                    value="{{ $edit == false ? '' : $alternatif->lokasi->lokasi }}" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class=" border-bottom border-black box-title text-black col-sm-12">Pemilik</label>
-                            </div>
-                            <div class="col-md-12 border-bottom">
-                                <input type="text" placeholder="....." name="pemilik"
-                                    class="form-control border-0"value="{{ $edit == false ? '' : $alternatif->lokasi->pemilik }}" />
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-md-12">
-                                <label class=" border-bottom border-black box-title text-black col-sm-12">Deskripsi</label>
-                            </div>
-                            <div class="col-md-12 border-bottom">
-                                <textarea class="form-control border-0" name="deskripsi" placeholder="Deskripsi Area/Lokasi">{{ $edit == false ? '' : $alternatif->lokasi->deskripsi }}</textarea>
-                            </div>
-                        </div>
                         {{-- Detail Sub Alternatif --}}
                         <div class="divider w-1/2">Detail Alternatif</div>
                         @foreach ($kriteria as $item)

@@ -12,8 +12,6 @@
             <x-th data-priority="1">No.</x-th>
             <x-th data-priority="1">Kode</x-th>
             <x-th data-priority="2">alternatif</x-th>
-            <x-th data-priority="2">Lokasi</x-th>
-            <x-th data-priority="2">Pemilik</x-th>
             <x-th data-priority="3">Aksi</x-th>
         </x-slot>
         <x-slot name="body">
@@ -22,8 +20,6 @@
                     <x-td>{{ $loop->iteration }}</x-td>
                     <x-td>{{ $item->kode }}</x-td>
                     <x-td>{{ $item->nama }}</x-td>
-                    <x-td>{{ $item->lokasi->lokasi }}</x-td>
-                    <x-td>{{ $item->lokasi->pemilik }}</x-td>
                     <x-td>
                         <x-tdaction :edit="true" :delete="true" :routeEdit="route('Alternatif.edit', ['id' => $item->id])"
                             routeDelete="deleteAlternatif " :idDelete="$item->id" :detail="true" :routeDetail="route('Alternatif.show', ['id' => $item->id])"  />

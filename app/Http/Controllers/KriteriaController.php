@@ -44,6 +44,7 @@ class KriteriaController extends Controller
      */
     public function store(StoreKriteriaRequest $request)
     {
+
         // dd($request->all());
         $kriteria = Kriteria::create([
             'kode'=> $request->kode,
@@ -58,8 +59,7 @@ class KriteriaController extends Controller
         // Tambah NilaiBobotAlternatifController
         $tbKriteria = new NilaiBobotAlternatifController();
         $tbKriteria->store();
-        Alert::success('Info', 'Berhasil Di Tambah');
-        return redirect()->route('Kriteria.index');
+        return redirect()->route('Kriteria.index')->with('success', 'Berhasil Di Tambah!!');
     }
 
     /**

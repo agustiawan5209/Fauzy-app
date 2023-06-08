@@ -1,6 +1,7 @@
 <x-app-layout>
 
     <x-slot name="page">Kriteria</x-slot>
+    @include('sweetalert::alert')
     {{-- Modal Tambah Kriteria --}}
     <!-- Put this part before </body> tag -->
 
@@ -12,18 +13,23 @@
                 <div class="modal-header">
                     <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <form action="{{ route('Kriteria.store') }}" method="post"
+                        class="flex flex-col justify-center items-center">
+
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('Kriteria.store') }}" method="POST" class="flex flex-col justify-center items-center">
+                    <div class="flex flex-col justify-center items-center">
                         @csrf
-                        @method('POST')
                         <div class="form-group ">
                             <label class="col-sm-12">
                                 <span class="label-kode">Kode Kriteria</span>
                             </label>
                             <label class="col-md-12">
-                                <input type="text" placeholder="....." name="kode" class="form-control border-none"
-                                    value={{ $kode }} />
+                                <input type="text" placeholder="....." name="kode"
+                                    class="form-control border-none" value={{ $kode }} />
+                                @error('kode')
+                                    <p class="text-red-400">{{ $message }}</p>
+                                @enderror
                             </label>
                         </div>
                         <div class="form-group ">
@@ -31,21 +37,26 @@
                                 <span class="label-nama">Nama Kriteria</span>
                             </div>
                             <div class="col-md-12">
-                                <input type="text" placeholder="....." name="name" class="form-control border-none" />
+                                <input type="text" placeholder="....." name="name"
+                                    class="form-control border-none" />
+                                @error('name')
+                                    <p class="text-red-400">{{ $message }}</p>
+                                @enderror
                             </div>
                         </div>
                         <div class="divider">Sub Kriteria</div>
-                        <div class="form-group  w-full flex flex-nowrap justify-center contentSubKriteria" id="">
+                        <div class="form-group  w-full flex flex-nowrap justify-center contentSubKriteria"
+                            id="">
                             <input type="text" placeholder="Type here" name="subkriteria[]"
                                 class="form-control border-none w-full max-w-xs" />
                         </div>
                         <kbd class="kbd cursor-pointer plusSubKriteria">+</kbd>
-
-                    </form>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="submit" for="my-modal" class="btn btn-success">Simpan!</button>
+                    </form>
                 </div>
             </div>
         </div>

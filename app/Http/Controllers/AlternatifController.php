@@ -54,7 +54,6 @@ class AlternatifController extends Controller
      */
     public function store(StoreAlternatifRequest $request)
     {
-        dd($request->all());
         $reqKodeSub = $request->kodeSub;
         $alternatif = Alternatif::create([
             'kode' => $request->kode,
@@ -70,8 +69,8 @@ class AlternatifController extends Controller
                 ]);
             }
         }
-        $lokasi = new LokasiController();
-        $lokasi->store($request, $alternatif->id);
+        // $lokasi = new LokasiController();
+        // $lokasi->store($request, $alternatif->id);
         $tbKriteria = new NilaiBobotAlternatifController();
         $tbKriteria->store();
         Alert::success('Info', 'Berhasil Di Tambah');

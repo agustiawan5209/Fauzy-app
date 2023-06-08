@@ -26,10 +26,10 @@ class StoreAlternatifRequest extends FormRequest
         return [
             'kode'=> ['required', 'unique:alternatifs,kode'],
             'nama'=> ['required', 'unique:alternatifs,nama'],
-            'gambar'=> ['required', 'image', 'mimes:png,jpg'],
-            'lokasi'=> ['required', 'string'],
-            'pemilik'=> ['required', 'string'],
-            'deskripsi'=> ['required', 'string'],
+            // 'gambar'=> ['required', 'image', 'mimes:png,jpg'],
+            // 'lokasi'=> ['required', 'string'],
+            // 'pemilik'=> ['required', 'string'],
+            // 'deskripsi'=> ['required', 'string'],
             // 'kodeSub'=> ['required', 'string'],
         ];
     }

@@ -26,10 +26,6 @@ class UpdateAlternatifRequest extends FormRequest
         return [
             'kode'=> ['required'],
             'nama'=> ['required'],
-            'gambar'=> ['image', 'nullable'],
-            'lokasi'=> ['required', 'string'],
-            'pemilik'=> ['required', 'string'],
-            'deskripsi'=> ['required', 'string'],
         ];
     }
 }

@@ -46,21 +46,13 @@
                                 <td class="border-spacing-1 text-gray-800 w-20">
                                     <div class="avatar">
                                         <div class="w-24 rounded">
-                                            <img src="{{ asset('storage/lokasi/' . $item->alternatif->lokasi->gambar) }}"
+                                            <img src="{{ asset('storage/lokasi/' . $item->alternatif) }}"
                                                 class=" image-full" alt="">
                                         </div>
                                     </div>
                                 </td>
                                 {{-- <td class="border-spacing-1 max-w-max text-gray-800">{{ $item->alternatif->kode }}</td> --}}
-                                <td class="border-spacing-1 max-w-max text-gray-800">
-                                    {{ $item->alternatif->lokasi->lokasi }}</td>
-                                <td class="border-spacing-1 max-w-max text-gray-800">
-                                    {{ $item->alternatif->lokasi->pemilik }}</td>
-                                <td class="border-spacing-1 max-w-max text-gray-800">
-                                    {{ $item->alternatif->lokasi->deskripsi }}</td>
-                                <td class="border-spacing-1 max-w-max text-gray-800">
-                                    <a href="{{ route('Usaha.show', ['id'=> $item->alternatif->id]) }}" class="btn btn-info">detail</a>
-                                </td>
+
                             </tr>
                         @endforeach
                     @else

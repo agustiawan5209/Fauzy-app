@@ -77,7 +77,6 @@
                                 @endif
                                 <div class="card-body">
                                     <h2 class="card-title">{{ $item->alternatif->nama }}</h2>
-                                    <p>{{ $item->alternatif->lokasi->deskripsi }}</p>
 
                                 </div>
                             </div>

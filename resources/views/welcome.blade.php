@@ -72,7 +72,9 @@
                             </div>
                         @else
                             <div class="card w-96 h-52  transition-all ease-linear bg-base-100 shadow-xl image-full" data-aos="fade-left">
+                                @if ($item->alternatif->lokasi !== null)
                                 <figure><img src="{{ asset('storage/lokasi/'. $item->alternatif->lokasi->gambar) }}" class="w-full bg-cover bg-fixed transition-all ease-linear" alt="Shoes" /></figure>
+                                @endif
                                 <div class="card-body">
                                     <h2 class="card-title">{{ $item->alternatif->nama }}</h2>
                                     <p>{{ $item->alternatif->lokasi->deskripsi }}</p>

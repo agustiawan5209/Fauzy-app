@@ -36,54 +36,36 @@ class SubKriteriaController extends Controller
      */
     public function store($subKriteria, $kriteria_id)
     {
-        for ($i=0; $i < count($subKriteria); $i++) {
-            $sub = SubKriteria::where( 'nama',$subKriteria[$i])->first();
-            if($sub == null){
-                SubKriteria::create([
-                    'kriteria_id' => $kriteria_id,
-                    'nama' => $subKriteria[$i],
-                ]);
-            }else{
-                SubKriteria::where('nama', '=', $subKriteria[$i])->update([
-                    'nama' => $subKriteria[$i],
-                ]);
-            }
-
+        $kri = Subkriteria::where('kriteria_id', $kriteria_id)->get();
+        if($kri->count() > 0){
+            Subkriteria::where('kriteria_id', $kriteria_id)->delete();
+        }
+        for ($i = 0; $i < count($subKriteria); $i++) {
+            $sub = SubKriteria::where('nama', $subKriteria[$i])->first();
+            SubKriteria::create([
+                'kriteria_id' => $kriteria_id,
+                'nama' => $subKriteria[$i],
+            ]);
         }
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SubKriteria  $subKriteria
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SubKriteria $subKriteria)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SubKriteria  $subKriteria
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SubKriteria $subKriteria)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateSubKriteriaRequest  $request
-     * @param  \App\Models\SubKriteria  $subKriteria
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateSubKriteriaRequest $request, SubKriteria $subKriteria)
+    public function update($subKriteria, $kriteria_id)
     {
-        //
+        $kri = Subkriteria::where('kriteria_id', $kriteria_id)->get();
+        for ($i = 0; $i < count($subKriteria); $i++) {
+            $sub = SubKriteria::where('nama', $subKriteria[$i])->first();
+            SubKriteria::where()->update([
+                'kriteria_id' => $kriteria_id,
+                'nama' => $subKriteria[$i],
+            ]);
+        }
     }
 
     /**
